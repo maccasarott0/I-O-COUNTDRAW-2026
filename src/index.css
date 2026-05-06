@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Outfit", "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --progress: 0%;
+}
+
+body {
+  margin: 0;
+  background: #020202;
+  overflow: hidden;
+  touch-action: none;
+  color: white;
+}
+
+.draw-container {
+  position: relative;
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 1rem;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.05);
+  transition: color 0.5s ease;
+}
+
+.draw-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--progress);
+  height: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  color: transparent;
+  background: linear-gradient(90deg, #4285f4, #ea4335, #fbbc05, #34a853);
+  -webkit-background-clip: text;
+  background-clip: text;
+  transition: width 0.1s linear, opacity 0.5s ease;
+}
+
+.is-fixing .draw-container {
+  opacity: 0.2;
+}
+
+.is-fixing .draw-fill {
+  opacity: 0;
+}

@@ -1,0 +1,56 @@
+{
+  "entities": {
+    "Stroke": {
+      "title": "Stroke",
+      "description": "A single drawing stroke from a user",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "UID of the user who drew the stroke"
+        },
+        "points": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "x": { "type": "number" },
+              "y": { "type": "number" },
+              "r": { "type": "number" }
+            }
+          }
+        },
+        "strokeId": {
+          "type": "number"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": ["userId", "points", "strokeId", "createdAt"]
+    },
+    "Presence": {
+      "title": "Presence",
+      "description": "User presence tracking",
+      "type": "object",
+      "properties": {
+        "lastActive": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": ["lastActive"]
+    }
+  },
+  "firestore": {
+    "strokes": {
+      "schema": "Stroke",
+      "description": "Global list of all drawing strokes"
+    },
+    "presence": {
+      "schema": "Presence",
+      "description": "Real-time presence of users"
+    }
+  }
+}
